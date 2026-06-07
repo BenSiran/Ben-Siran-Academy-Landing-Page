@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ben Siran — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --crimson: #8B1A1A; --gold: #C9A84C; --gold-light: #E2C97E;
+  --dark: #0D0A07; --dark-warm: #161008;
+  --parchment: #F2E8D0; --parchment-dark: #D4C5A0;
+  --text-light: #EDE0C4; --text-muted: #9A8870;
+  --orange: #e8692a; --border: #1c1c1c; --border2: #161616;
+  --muted: #2e2b29; --dim: #5a5754; --body: #6e6b68; --light: #e0dbd5;
+}
+html { background: var(--dark); scroll-behavior: smooth; }
+body { background: var(--dark); color: var(--light);
+  font-family: Georgia, 'Times New Roman', serif;
+  -webkit-font-smoothing: antialiased; }
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--dark-warm); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+.topnav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  padding: 15px 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  background: rgba(13,10,7,0.97);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+}
+.topnav-logo {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 11px; letter-spacing: 3px;
+  color: var(--gold); text-decoration: none; text-transform: uppercase;
+}
+.topnav-links { display: flex; gap: 28px; list-style: none; align-items: center; }
+.topnav-links a {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px; letter-spacing: 2px;
+  color: var(--parchment-dark); text-decoration: none; text-transform: uppercase;
+  transition: color 0.3s;
+}
+.topnav-links a:hover, .topnav-links a.active { color: var(--gold); }
+.topnav-btn {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 10px; letter-spacing: 2px;
+  padding: 7px 18px; border: 1px solid var(--gold);
+  color: var(--gold); text-decoration: none;
+  text-transform: uppercase; transition: all 0.3s;
+}
+.topnav-btn:hover { background: var(--gold); color: var(--dark); }
+.orange-bar { position: fixed; left: 0; top: 0; width: 3px; height: 100vh;
+  background: linear-gradient(to bottom, var(--orange), transparent); z-index: 300; opacity: 0.8; }
+
+
+.page { max-width: 900px; margin: 0 auto; padding: 108px 56px 80px; position: relative; }
+.page-bar { position: absolute; left: -56px; top: 44px; width: 3px; height: 148px; background: var(--orange); }
+
+/* HEADER */
+.cv-header { display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 36px; padding-bottom: 44px; border-bottom: 1px solid var(--border); margin-bottom: 52px; }
+.header-left { flex: 1; }
+.cv-name { font-family: Georgia, serif; font-size: 50px; font-weight: 400;
+  letter-spacing: -1.5px; line-height: 1; color: #f4f0eb; margin-bottom: 10px; }
+.cv-title { font-family: monospace; font-size: 10px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 18px; }
+.cv-summary { font-family: Arial, sans-serif; font-size: 13px; color: var(--body);
+  line-height: 1.75; max-width: 480px; margin-bottom: 20px; }
+.contacts { display: flex; flex-direction: column; gap: 5px; }
+.contact-item { display: flex; align-items: center; gap: 9px;
+  font-family: monospace; font-size: 10.5px; color: var(--dim); letter-spacing: 0.03em; }
+.contact-dot { width: 4px; height: 4px; border-radius: 50%;
+  background: var(--orange); flex-shrink: 0; display: inline-block; }
+.photo-wrap { position: relative; flex-shrink: 0; }
+.photo-frame { position: absolute; inset: -6px; border: 1px solid rgba(232,105,42,0.3); z-index: 2; pointer-events: none; }
+.photo { width: 110px; height: 130px; object-fit: cover; object-position: center top;
+  display: block; filter: grayscale(15%) contrast(1.05); }
+
+/* GRID */
+.grid { display: grid; grid-template-columns: 148px 1fr; column-gap: 40px; }
+.sec-label { font-family: monospace; font-size: 9px; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--muted); padding-top: 4px; line-height: 1.6; }
+.sec-content { margin-bottom: 44px; }
+
+/* PILLS */
+.pills { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill { font-family: Arial, sans-serif; font-size: 11px; padding: 4px 11px;
+  color: #6a6764; background: #141414; border: 1px solid #202020; line-height: 1.5; }
+.pill.a { color: var(--orange); background: rgba(232,105,42,0.07); border: 1px solid rgba(232,105,42,0.28); }
+
+/* EXP */
+.exp { padding-bottom: 24px; margin-bottom: 24px; border-bottom: 1px solid var(--border2); }
+.exp:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
+.exp-head { display: flex; justify-content: space-between; align-items: baseline;
+  gap: 12px; margin-bottom: 3px; }
+.exp-role { font-family: Georgia, serif; font-size: 13.5px; color: var(--light); }
+.exp-period { font-family: monospace; font-size: 9.5px; color: var(--muted);
+  white-space: nowrap; flex-shrink: 0; letter-spacing: 0.06em; }
+.exp-co { font-family: Arial, sans-serif; font-size: 11px; color: var(--orange);
+  letter-spacing: 0.04em; margin-bottom: 9px; }
+.exp-pts { display: flex; flex-direction: column; gap: 5px; }
+.exp-pt { font-family: Arial, sans-serif; font-size: 12px; color: var(--body);
+  line-height: 1.65; padding-left: 16px; position: relative; }
+.exp-pt::before { content: "\2014"; position: absolute; left: 0; color: var(--muted); font-size: 11px; }
+
+/* EDU */
+.edu { margin-bottom: 16px; }
+.edu-deg { font-family: Georgia, serif; font-size: 13px; color: var(--light); line-height: 1.4; }
+.edu-sch { font-family: Arial, sans-serif; font-size: 11px; color: var(--dim); margin-top: 2px; }
+.edu-yr { font-family: monospace; font-size: 9.5px; color: var(--muted);
+  letter-spacing: 0.08em; margin-top: 2px; }
+
+/* CERT */
+.certs { display: flex; flex-direction: column; gap: 9px; }
+.cert { font-family: Arial, sans-serif; font-size: 12px; color: var(--body);
+  padding-left: 16px; position: relative; line-height: 1.55; }
+.cert::before { content: "\2014"; position: absolute; left: 0; color: var(--muted); font-size: 11px; }
+
+/* FOOTER */
+.cv-footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+.cv-footer-name { font-family: monospace; font-size: 9px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--muted); }
+.cv-footer-links { display: flex; gap: 22px; flex-wrap: wrap; }
+.cv-footer-link { font-family: monospace; font-size: 9px; letter-spacing: 0.12em;
+  color: var(--muted); text-transform: uppercase; text-decoration: none; }
+
+@media (max-width: 640px) {
+  .topnav { padding: 13px 20px; }
+  .topnav-links { display: none; }
+  .page { padding: 90px 24px 60px; }
+  .grid { grid-template-columns: 1fr; }
+  .sec-label { margin-bottom: 8px; }
+  .cv-header { flex-direction: column-reverse; }
+}
+
+</style>
+</head>
+<body>
+<div class="orange-bar"></div>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-logo">Ben Siran</a>
+  <ul class="topnav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="cv-en.html" class="active">CV — English</a></li>
+    <li><a href="cv-fa.html">CV — فارسی</a></li>
+    <li><a href="mailto:benyamin.siran@gmail.com" class="topnav-btn">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+  <div class="page-bar"></div>
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div class="header-left">
+      <h1 class="cv-name">Ben Siran</h1>
+      <div class="cv-title">Senior Communications Strategist &middot; Multidisciplinary Content Director</div>
+      <p class="cv-summary">Multidisciplinary professional with 15+ years bridging creative direction, digital asset generation, corporate PR, and international educational management across the Middle East and East Asia.</p>
+      <div class="contacts">
+        <div class="contact-item"><span class="contact-dot"></span>benyamin.siran@gmail.com</div>
+        <div class="contact-item"><span class="contact-dot"></span>+98 935 609 1801</div>
+        <div class="contact-item"><span class="contact-dot"></span>linkedin.com/in/benyaminsiran</div>
+        <div class="contact-item"><span class="contact-dot"></span>dribbble.com/Ben_Siran</div>
+      </div>
+    </div>
+    <div class="photo-wrap">
+      <div class="photo-frame"></div>
+      <img class="photo" src="data:image/jpeg;base64,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" alt="Ben Siran">
+    </div>
+  </div>
+
+  <!-- GRID -->
+  <div class="grid">
+
+    <div class="sec-label">Expertise</div>
+    <div class="sec-content">
+      <div class="pills">
+        <span class="pill a">Brand Architecture</span>
+        <span class="pill a">Generative AI Pipelines</span>
+        <span class="pill">Corporate PR</span>
+        <span class="pill">Digital Marketing &amp; SEO</span>
+        <span class="pill">Multimedia Production</span>
+        <span class="pill">Motion Graphics</span>
+        <span class="pill">CRM Strategy</span>
+        <span class="pill">IELTS / TOEFL Assessment</span>
+        <span class="pill">Creative Direction</span>
+        <span class="pill">Diplomatic Interpretation</span>
+        <span class="pill">UI/UX Creative Direction</span>
+        <span class="pill">Midjourney &middot; Leonardo &middot; Ideogram</span>
+      </div>
+    </div>
+
+    <div class="sec-label">Experience</div>
+    <div class="sec-content">
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">Senior Content Creator, Designer &amp; Head of CRM</span><span class="exp-period">May 2023 – Jan 2025</span></div>
+        <div class="exp-co">Golden Saffron Holding &middot; Tehran, Iran</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Architected end-to-end multi-channel corporate content campaigns, driving a 15% organic digital engagement increase within 6 months.</div>
+          <div class="exp-pt">Designed and codified comprehensive brand style guides, logotypes, and advertising layouts ensuring aesthetic continuity across premium digital pipelines.</div>
+          <div class="exp-pt">Built and managed the organizational CRM environment; optimized transactional text structures, increasing customer retention by 10%.</div>
+          <div class="exp-pt">Conducted advanced keyword research and technical SEO restructuring, generating an 8% boost in seasonal conversion rates.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">Brand Director, Lead Strategist &amp; Video Editor</span><span class="exp-period">Jun – Dec 2024</span></div>
+        <div class="exp-co">Forsat Academy &middot; Mashhad, Iran</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Engineered a comprehensive institutional visual reboot — brand architecture, typography regulations, and structural asset systems.</div>
+          <div class="exp-pt">Supervised the creative production lifecycle across web, social, and mobile platforms with rigorous UI/UX direction.</div>
+          <div class="exp-pt">Authored and edited premium audio-visual content integrating complex motion graphics and custom soundscapes.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">IPD CEO &amp; PR Manager</span><span class="exp-period">Apr 2023 – Nov 2024</span></div>
+        <div class="exp-co">Aria Hospital &middot; Mashhad, Iran</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Spearheaded international healthcare administrative frameworks and cross-border medical tourism logistics.</div>
+          <div class="exp-pt">Generated daily bilingual (EN/FA) digital assets establishing a consistent 20,000 monthly unique visitor reach.</div>
+          <div class="exp-pt">Commanded in-house media cell; standardized institutional press workflows and documentary production.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">Art Director, Visual Consultant &amp; Founder</span><span class="exp-period">Apr 2007 – Jul 2025</span></div>
+        <div class="exp-co">Siran Art Agency &amp; Fine Art Galleries &middot; Mashhad, Iran</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Founded and operated a premier contemporary art venue, curating elite cultural showcases and exhibitions.</div>
+          <div class="exp-pt">Senior Graphic Designer and Creative Consultant for Parand, Vatan, Navak, and Honar Resaneh agencies.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">University Lecturer — Translation Studies &amp; TEFL</span><span class="exp-period">Feb 2017 – Jul 2024</span></div>
+        <div class="exp-co">Attar University &amp; Imam Reza International University &middot; Mashhad</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Delivered advanced graduate/undergraduate courses: Language Testing Methodology, Translation of Political &amp; Literary Texts, Technical Research Writing.</div>
+          <div class="exp-pt">Designed and implemented institutional-level testing systems and standardized diagnostic evaluation criteria.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">Educational Branch Manager, TTC Director &amp; Examiner</span><span class="exp-period">2010 – 2026</span></div>
+        <div class="exp-co">International Language Institutions &middot; Iran &amp; China</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Appointed Official IELTS Speaking Examiner at LAN-MASTER, China.</div>
+          <div class="exp-pt">Executed branch management, Teacher Training Courses, and instructional audits at Iranmehr &amp; Parax Institutes.</div>
+          <div class="exp-pt">Supervised and assessed 600+ official-standard IELTS/TOEFL examinations.</div>
+        </div>
+      </div>
+
+      <div class="exp">
+        <div class="exp-head"><span class="exp-role">Official Personal Assistant &amp; Diplomatic Interpreter</span><span class="exp-period">Jun 2018 – May 2019</span></div>
+        <div class="exp-co">Pakistan Consulate &middot; Mashhad, Iran</div>
+        <div class="exp-pts">
+          <div class="exp-pt">Managed real-time high-level bilateral diplomatic translation and protocol workflows under strict confidentiality frameworks.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sec-label">Education</div>
+    <div class="sec-content">
+      <div class="edu">
+        <div class="edu-deg">MA &mdash; Teaching English as a Foreign Language (TEFL)</div>
+        <div class="edu-sch">Imam Reza International University &mdash; Thesis: Job Commitment &amp; Retention Modeling</div>
+        <div class="edu-yr">2017</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">BA &mdash; English Translation Studies</div>
+        <div class="edu-sch">Imam Reza International University</div>
+        <div class="edu-yr">2012</div>
+      </div>
+      <div class="edu">
+        <div class="edu-deg">Associate Diploma &mdash; Manual &amp; Graphic Design</div>
+        <div class="edu-sch">Ershad Fine Arts School</div>
+        <div class="edu-yr">2007</div>
+      </div>
+    </div>
+
+    <div class="sec-label">Certifications<br>&amp; Notable</div>
+    <div class="sec-content">
+      <div class="certs">
+        <div class="cert">Semrush Technical SEO Suite &mdash; Advanced Professional Certification</div>
+        <div class="cert">120-Hour TEFL Certification</div>
+        <div class="cert">600+ official-standard IELTS/TOEFL examinations supervised and assessed</div>
+        <div class="cert">3 scientific research articles published in indexed medical/language journals</div>
+        <div class="cert">Primary lyricist, composer, and producer of two independent original music albums</div>
+        <div class="cert">Native Persian &middot; Near-native professional English translation/interpretation</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="cv-footer">
+    <span class="cv-footer-name">Ben Siran &middot; 2026</span>
+    <div class="cv-footer-links">
+      <span class="cv-footer-link">benyamin.siran@gmail.com</span>
+      <a href="index.html" class="cv-footer-link">Home</a>
+      <a href="cv-fa.html" class="cv-footer-link">CV فارسی</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
